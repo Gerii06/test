@@ -1,0 +1,74 @@
+# ============================================================
+#  PearlControl - configuration
+#  Colors use the '&' legacy codes and also support
+#  hex colors in the form <#RRGGBB>.
+# ============================================================
+
+# Cooldown (in seconds) applied after throwing an ender pearl.
+# Players with the permission 'pearlcontrol.bypass' are not affected.
+cooldown: 15.0
+
+# Where the "you are on cooldown" feedback is shown when a player
+# tries to throw a pearl too early.
+# Valid: CHAT, ACTIONBAR, TITLE, NONE
+cooldown-display: ACTIONBAR
+
+# Message shown while on cooldown.
+# Placeholders: %seconds% (one decimal), %seconds_int% (whole number)
+cooldown-message: "&cYou must wait &e%seconds%s &cbefore throwing another pearl."
+
+# Optional sound played when a pearl is denied by the cooldown.
+deny-sound:
+  enabled: true
+  sound: ENTITY_VILLAGER_NO
+  volume: 1.0
+  pitch: 1.0
+
+# Optional sound played when a pearl is successfully thrown.
+throw-sound:
+  enabled: false
+  sound: ENTITY_ENDER_DRAGON_FLAP
+  volume: 1.0
+  pitch: 1.0
+
+# ------------------------------------------------------------
+#  Anti-glitch
+#  Prevents the classic HCF "pearl into a wall / block" glitch
+#  where a pearl lands you inside a solid block.
+# ------------------------------------------------------------
+anti-glitch:
+  enabled: true
+  # If true, when a pearl would land the player inside a solid block
+  # the teleport is cancelled and the pearl is refunded (see refund).
+  cancel-teleport: true
+  # Message shown when an anti-glitch teleport is blocked. Empty = silent.
+  message: "&cThat pearl was blocked to prevent a wall glitch."
+
+# ------------------------------------------------------------
+#  Cross-world
+#  Block pearls from crossing into a different world (rarely happens,
+#  but keeps parity with region/world restrictions).
+# ------------------------------------------------------------
+block-cross-world: false
+
+# ------------------------------------------------------------
+#  Disabled worlds - pearls cannot be thrown in these worlds.
+# ------------------------------------------------------------
+disabled-worlds: []
+
+# ------------------------------------------------------------
+#  Refund
+#  Give the pearl back to the player in certain situations
+#  (blocked by anti-glitch, thrown in a disabled world, etc.).
+# ------------------------------------------------------------
+refund:
+  enabled: true
+  # Also clear the cooldown when a pearl is refunded.
+  reset-cooldown: true
+  # Message shown when a pearl is refunded. Empty = silent.
+  message: "&aYour ender pearl was refunded."
+
+messages:
+  no-permission: "&cYou do not have permission to do that."
+  reloaded: "&aPearlControl configuration reloaded."
+  prefix: "&8[&dPearlControl&8] &r"

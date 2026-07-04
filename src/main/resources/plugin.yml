@@ -1,0 +1,22 @@
+name: PearlControl
+version: ${project.version}
+main: eu.example.pearls.PearlControl
+api-version: '1.21'
+author: PearlControl
+description: Ender pearl cooldown, anti-glitch and refund plugin.
+softdepend: [PlaceholderAPI]
+
+commands:
+  pearlcontrol:
+    description: Main admin command for PearlControl.
+    aliases: [pc, pearl]
+    usage: /pearlcontrol <reload|help>
+    permission: pearlcontrol.admin
+
+permissions:
+  pearlcontrol.admin:
+    description: Access to admin commands (reload, etc.).
+    default: op
+  pearlcontrol.bypass:
+    description: Bypass the ender pearl cooldown.
+    default: false
